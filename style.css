@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Piston Pressure';
+    src: url("assets/fonts/Piston-Pressure.woff") format("woff"), url("assets/fonts/Piston-Pressure.ttf")  format("truetype");
+}
+
 body,
 html {
   font-family: 'Roboto', sans-serif;
@@ -22,8 +27,11 @@ html {
 }
 
 #topbar {
+  font-family: 'Piston Pressure';
+  font-size: 38px;
+  letter-spacing: 0.05em;
   display: flex;
-  background: #488AFF;
+  background: #25ACE1;
   vertical-align: middle;
   align-items: center;
   height: 10%;
@@ -94,7 +102,7 @@ pre {
 }
 
 .card header {
-  background: #578cf7;
+  background: #25ACE1;
   padding: 5px 5px 5px 20px;
   border-radius: 4px 4px 0 0;
   color: white;
