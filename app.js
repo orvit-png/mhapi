@@ -3,11 +3,6 @@ let endpoints = [];
 
 window.onload = async (e) => {
 
-    fetch('https://delicate-tulip.glitch.me', { 
-        method: 'POST',
-        mode: 'no-cors'
-    });
-
     const data = await fetch(`${BASE_RAW}/shit.json`).then(res => res.json());
 
     data.forEach(async (c) => {
