@@ -5,7 +5,7 @@
         "auth": false,
         "endpoint": "https://api.minehut.com/servers",
         "description": [
-            "Returns a list of currently online player servers."
+            "Returns all online player servers."
         ],
         "response": {
             "file": "servers.txt"
@@ -17,7 +17,7 @@
         "auth": false,
         "endpoint": "https://api.minehut.com/server/{server-id}",
         "description": [
-            "Returns basic information of a server using its ID."
+            "Returns information about a server using the ID provided."
         ],
         "response": {
             "file": "server.txt"
@@ -29,7 +29,7 @@
         "auth": false,
         "endpoint": "https://api.minehut.com/server/{server-name}?byName=true",
         "description": [
-            "Same as the previous, but uses the name instead of the ID."
+            "Returns information about a server using the name provided."
         ]
     },
     {
@@ -38,7 +38,7 @@
         "auth": false,
         "endpoint": "https://api.minehut.com/plugins_public",
         "description": [
-            "Returns all the available plugins for Minehut servers, along with their id, name, and description."
+            "Returns all available Minehut plugins."
         ],
         "response": {
             "file": "plugins_public.txt"
@@ -51,7 +51,7 @@
         "endpoint": "https://api.minehut.com/users/login",
         "body": "{\"email\":\"spongebob@squarep.ants\",\"password\":\"ILiveInAPineappleUnderTheSea404\"}",
         "description": [
-            "Returns token, user id, and servers from login credentials."
+            "(Deprecated) Logins with the provided credentials and returns the token, session id, and servers of the user."
         ],
         "response": {
             "file": "login.txt"
@@ -63,7 +63,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/users/ghost_login",
         "description": [
-            "Returns the same data as <span class=\"code\">/users/login</span>, but instead of using a request body, it uses authorization."
+            "(Deprecated) Returns the same data as <span class=\"code\">/users/login</span>, but instead of using login credentials, it uses a token and session id."
         ]
     },
     {
@@ -73,7 +73,7 @@
         "endpoint": "https://api.minehut.com/users/signup",
         "body": "{\"email\":\"spongebob@squarep.ants\",\"birthday\":\"1986-01-02T00:05:40.082Z\"}",
         "description": [
-            "Signup using an email and date of birth. Also sends a verification code to said email."
+            "(Deprecated) Create a new Minehut account with the email and birth date, also sends a verification code to the provided email."
         ]
     },
     {
@@ -83,7 +83,7 @@
         "endpoint": "https://api.minehut.com/users/confirm_email",
         "body": "{\"email_code\":\"P1N34PPL3\",\"password\":\"P@ssw0rd1234\"}",
         "description": [
-            "Verifies email code."
+            "(Deprecated) Verifies an account using the provided email code and sets a password for the account."
         ]
     },
     {
@@ -92,7 +92,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/user/{user-id}",
         "description": [
-            "Returns user info."
+            "Returns information about a Minehut user."
         ],
         "response": {
             "file": "user_info.txt"
@@ -132,7 +132,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/server/{server-id}/start_service",
         "description": [
-            "Brings the server out of hibernation and starts it."
+            "Takes the server out of hibernation and starts it."
         ]
     },
     {
@@ -150,7 +150,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/server/{server-id}/shutdown",
         "description": [
-            "Stops the server, but does not put it in hibernation."
+            "Stops the server, but doesn't hibernate it."
         ]
     },
     {
@@ -159,7 +159,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/server/{server-id}/destroy_service",
         "description": [
-            "Immediately stops the server and puts it in hibernation."
+            "Stops the server and hibernates it."
         ]
     },
     {
@@ -168,7 +168,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/server/{server-id}/repair_files",
         "description": [
-            "Attempts to repair the server files incase of an issue."
+            "Attempts to repair the server's core files."
         ]
     },
     {
@@ -197,7 +197,7 @@
         "endpoint": "https://api.minehut.com/server/{server-id}/change_name",
         "body":"{\"name\":\"MyServer2.0\"}",
         "description": [
-            "Changes the servers name. Error 400 if name is already taken."
+            "Changes the servers name. Error 400 if the name is already taken."
         ]
     },
     {
@@ -207,7 +207,7 @@
         "endpoint": "https://api.minehut.com/server/{server-id}/change_motd",
         "body":"{\"command\":\"&6Ooo, &athis is nice!\"}",
         "description": [
-            "Changes the servers MOTD (message of the day)."
+            "Changes the MOTD of the server."
         ]
     },
     {
@@ -226,7 +226,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/server/{server-id}/save",
         "description": [
-            "Saves the servers world."
+            "Saves the server's world."
         ]
     },
     {
@@ -235,7 +235,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/server/{server-id}/reset_world",
         "description": [
-            "Resets the servers world with a new seed."
+            "Resets the server's world with a new seed."
         ]
     },
     {
@@ -247,16 +247,6 @@
         "description": [
             "Changes values in the server.properties file.",
             "Possible fields are <span class=\"code\">max_players</span>, <span class=\"code\">level_type</span>, <span class=\"code\">level_name</span>, <span class=\"code\">generator_settings</span>, <span class=\"code\">gamemode</span>, <span class=\"code\">force_gamemode</span>, <span class=\"code\">pvp</span>, <span class=\"code\">spawn_mobs</span>, <span class=\"code\">spawn_animals</span>, <span class=\"code\">allow_flight</span>, <span class=\"code\">generator_settings</span>, <span class=\"code\">difficulty</span>, <span class=\"code\">hardcore</span>, <span class=\"code\">enable_command_block</span>, <span class=\"code\">announce_player_achievements</span>, <span class=\"code\">allow_nether</span>, <span class=\"code\">generate_structures</span>, and <span class=\"code\">resource_pack</span>."
-        ]
-    },
-    {
-        "method": "post",
-        "name": "/file/world/upload/<span class=\"placeholder\">Server ID</span>",
-        "auth": true,
-        "endpoint": "https://api.minehut.com/file/world/upload/{server-id}",
-        "body": "File (binary)",
-        "description": [
-            "Uploads a .zip world."
         ]
     },
     {
@@ -288,9 +278,51 @@
         "endpoint": "https://api.minehut.com/server/{server-id}/remove_plugin",
         "body": "{\"plugin\":\"5a42ba4846246d33fa64c625\"}",
         "description": [
-            "Uninstalls a plugin from the server."
+            "Removes a plugin from the server."
         ]
-    },
+	},
+	{
+		"method": "get",
+		"name": "/v1/server/<span class=\"placeholder\">Server ID</span>/backups",
+		"auth": true,
+		"endpoint": "https://api.minehut.com/v1/server/{server-id}/backups",
+		"description": [
+			"Retrieve a list of server backups."
+		],
+		"response": {
+			"file": "backups.txt"
+		}
+	},
+	{
+		"method": "post",
+		"name": "/v1/server/<span class=\"placeholder\">Server ID</span>/backup/apply",
+		"auth": true,
+		"endpoint": "https://api.minehut.com/v1/server/{server-id}/backup/apply",
+		"body": "{\"backup_id\":\"ID of backup\"",
+		"description": [
+			"Apply an existing backup to a server."
+		]
+	},
+	{
+		"method": "post",
+		"name": "/v1/server/<span class=\"placeholder\">Server ID</span>/backup/create",
+		"auth": true,
+		"endpoint": "https://api.minehut.com/v1/server/{server-id}/backup/create",
+		"body": "{\"backup_id\":\"ID of backup\"",
+		"description": [
+			"Create a new backup."
+		]
+	},
+	{
+		"method": "delete",
+		"name": "/v1/server/<span class=\"placeholder\">Server ID</span>/backup",
+		"auth": true,
+		"endpoint": "https://api.minehut.com/v1/server/{server-id}/backup",
+		"body": "{\"backup_id\":\"ID of backup\"",
+		"description": [
+			"Delete an existing backup."
+		]
+	},
     {
         "method": "post",
         "name": "/server/<span class=\"placeholder\">Server ID</span>/remove_plugin_data",
@@ -298,23 +330,43 @@
         "endpoint": "https://api.minehut.com/server/{server-id}/remove_plugin_data",
         "body": "{\"plugin\":\"5a42ba4846246d33fa64c625\"}",
         "description": [
-            "Resets the plugin configuration file."
+            "Resets a plugin's configuration file."
         ]
-    },
-    {
+	},
+	{
         "method": "post",
+        "name": "/file/world/upload/<span class=\"placeholder\">Server ID</span>",
+        "auth": true,
+        "endpoint": "https://api.minehut.com/file/world/upload/{server-id}",
+        "body": "{\"file\": File (binary)}",
+        "description": [
+            "Uploads a .zip world to the server."
+        ]
+	},
+	{
+		"method": "post",
+		"name": "/file/upload/<span class=\"placeholder\">Server ID</span>//",
+		"auth": true,
+		"endpoint": "https://api.minehut.com/file/upload/{server-id}/{path}",
+		"body": "{\"file\": File (binary)}",
+		"description": [
+			"Uploads a file to the server."
+		]
+	},
+    {
+        "method": "get",
         "name": "/file/<span class=\"placeholder\">Server ID</span>/list",
         "auth": true,
         "endpoint": "https://api.minehut.com/file/{server-id}/list",
         "description": [
-            "Returns all the files and folders in the servers root."
+            "Returns all the files and folders in the server's root."
         ],
         "response": {
             "file": "files.txt"
         }
     },
     {
-        "method": "post",
+        "method": "get",
         "name": "/file/<span class=\"placeholder\">Server ID</span>/list/<span class=\"placeholder\">Path</span>",
         "auth": true,
         "endpoint": "https://api.minehut.com/file/{server-id}/list/{path}",
@@ -326,12 +378,12 @@
         }
     },
     {
-        "method": "post",
+        "method": "get",
         "name": "/file/<span class=\"placeholder\">Server ID</span>/read/<span class=\"placeholder\">File path</span>",
         "auth": true,
         "endpoint": "https://api.minehut.com/file/{server-id}/read/{file-path}",
         "description": [
-            "Returns all the contents of a file."
+            "Returns the contents of the provided file."
         ],
         "response": {
             "file": "read.txt"
@@ -364,7 +416,7 @@
         "endpoint": "https://api.minehut.com/file/{server-id}/folder/create",
         "body": "{\"name\":\"MyFolder\",\"directory\":\"world\"}",
         "description": [
-            "Creates a new folder in the directory."
+            "Creates a new folder in the provided directory."
         ]
     },
 	{
@@ -373,7 +425,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/stats/users/registrations/week",
         "description": [
-            "Weekly user registrations"
+            "Returns the amount of weekly user registrations."
         ]
     },
     {
@@ -382,7 +434,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/stats/subscriptions/week",
         "description": [
-            "Weekly subscriptions"
+            "Returns the amount of weekly subscriptions."
         ]
     },
     {
@@ -391,7 +443,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/stats/subscriptions/new/week",
         "description": [
-            "Weekly new subscriptions"
+            "Returns the amount of new weekly subscriptions."
         ]
     },
     {
@@ -400,7 +452,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/network/stats/joins/week",
         "description": [
-            "Weekly joins"
+            "Returns the amount of weekly joins total."
         ]
     },
     {
@@ -409,7 +461,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/network/stats/joins/week/java",
         "description": [
-            "Weekly java joins"
+            "Returns the amount of weekly joins from Minecraft: Java Edition."
         ]
     },
     {
@@ -418,7 +470,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/network/stats/joins/week/bedrock",
         "description": [
-            "Weekly bedrock joins"
+            "Returns the amount of weekly joins from Minecraft: Bedrock Edition."
         ]
     },
     {
@@ -427,7 +479,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/stats/subscriptions/cancellations/week",
         "description": [
-            "Weekly subscription cancellations"
+            "Returns the amount of weekly subscription cancellations."
         ]
     },
     {
@@ -436,7 +488,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/stats/votes/week",
         "description": [
-            "Weekly votes"
+            "Returns the amount of weekly votes."
         ]
     },
     {
@@ -445,7 +497,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/stats/users/registrations/month",
         "description": [
-            "Monthly user registrations"
+            "Returns the amount of monthly user registrations."
         ]
     },
     {
@@ -454,7 +506,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/stats/subscriptions/month",
         "description": [
-            "Monthly subscriptions"
+            "Returns the amount of monthly subscriptions."
         ]
     },
     {
@@ -463,7 +515,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/stats/subscriptions/new/month",
         "description": [
-            "Monthly new subscriptions"
+            "Returns the amount of new monthly subscriptions."
         ]
     },
     {
@@ -472,7 +524,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/network/stats/joins/month",
         "description": [
-            "Monthly joins"
+            "Returns the amount of monthly joins total."
         ]
     },
     {
@@ -481,7 +533,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/network/stats/joins/month/java",
         "description": [
-            "Monthly java joins"
+            "Returns the amount of monthly joins from Minecraft: Java Edition."
         ]
     },
     {
@@ -490,7 +542,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/network/stats/joins/month/bedrock",
         "description": [
-            "Monthly bedrock joins"
+            "Returns the amount of monthly joins from Minecraft: Bedrock Edition."
         ]
     },
     {
@@ -499,7 +551,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/stats/subscriptions/cancellations/month",
         "description": [
-            "Monthly subscription cancellations"
+            "Returns the amount of monthly subscription cancellations."
         ]
     },
     {
@@ -508,7 +560,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/stats/votes/month",
         "description": [
-            "Monthly votes"
+            "Returns the amount of monthly votes."
         ]
     },
     {
@@ -517,7 +569,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/network/players/distribution",
         "description": [
-            "Player distribution"
+            "Returns the player distribution."
         ]
     },
     {
@@ -526,7 +578,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/website/navbar/promotion",
         "description": [
-            "Update navbar promotion"
+            "Update the navigation bar promotion in the top right of the panel."
         ]
     },
     {
@@ -535,7 +587,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/user/name?byEmail=true",
         "description": [
-            "Get user info from email"
+            "Get user information from email."
         ]
     },
     {
@@ -544,7 +596,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/user/name?byMinecraftName=true",
         "description": [
-            "Get user info from minehut name"
+            "Get user information from Minecraft IGN."
         ]
     },
     {
@@ -553,7 +605,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/user/name/add_credits/amount",
         "description": [
-            "Add credits to user"
+            "Add credits to a user."
         ]
     },
     {
@@ -562,7 +614,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/user/name/delete_session",
         "description": [
-            "Delete user session"
+            "Delete a user's session."
         ]
     },
     {
@@ -571,7 +623,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/add/name",
         "description": [
-            "Add new admin"
+            "Add a user to the Admin Panel."
         ]
     },
     {
@@ -580,7 +632,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/gdpr/user",
         "description": [
-            "GDPR dump"
+            "Does a GDPR dump for a user."
         ]
     },
     {
@@ -589,16 +641,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/delete/user",
         "description": [
-            "Delete account"
-        ]
-    },
-    {
-        "method": "get",
-        "name": "/server/name?byName=true",
-        "auth": true,
-        "endpoint": "https://api.minehut.com/server/name?byName=true",
-        "description": [
-            "Server lookup"
+            "Delete a user's account."
         ]
     },
     {
@@ -607,7 +650,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/server/name/destroy_service_admin",
         "description": [
-            "Destroy server service"
+            "Force hibernate a server from the Admin Panel."
         ]
     },
     {
@@ -616,7 +659,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/name/suspend",
         "description": [
-            "Suspend server"
+            "Suspend a server."
         ]
     },
     {
@@ -625,7 +668,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/name/release",
         "description": [
-            "Release a server from suspension"
+            "Lift a server's suspension."
         ]
     },
     {
@@ -634,7 +677,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/plugins",
         "description": [
-            "Get plugins"
+            "Returns full list of plugins."
         ]
     },
     {
@@ -643,7 +686,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/plugin/id/edit",
         "description": [
-            "Edit plugin"
+            "Edit information for a plugin."
         ]
     },
     {
@@ -652,7 +695,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/plugin/id/delete",
         "description": [
-            "Delete plugin"
+            "Delete a plugin from Minehut."
         ]
     },
     {
@@ -661,7 +704,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/plugins",
         "description": [
-            "Add plugin"
+            "Add a plugin to Minehut."
         ]
     },
     {
@@ -670,7 +713,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/payments/range",
         "description": [
-            "Payment range"
+            "Update payment ranges for credits."
         ]
     },
     {
@@ -679,7 +722,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/credits/range",
         "description": [
-            "Credit ranges"
+            "Update credit ranges for the shop."
         ]
     },
     {
@@ -688,7 +731,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/voting/set/reward",
         "description": [
-            "Update vote award"
+            "Update the credits vote award."
         ]
     },
     {
@@ -697,7 +740,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/vote/reward",
         "description": [
-            "Current voting award"
+            "Retrieve the current vote reward."
         ]
     },
     {
@@ -706,7 +749,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/admin/votes/range",
         "description": [
-            "Voting range"
+            "Update the voting range."
         ]
     },
     {
@@ -715,7 +758,19 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/network/motd",
         "description": [
-            "Update Bungeecord MOTD "
+            "Update the Bungeecord MOTD."
         ]
-    }
+	},
+	{
+		"method": "get",
+		"name": "/website/transferring/promotion",
+		"auth": true,
+		"endpoint": "https://api.minehut.com/website/transferring/promotion",
+		"description": [
+			"Retrieve the current promotion video."
+		],
+		"response": {
+			"file": "promotion.txt"
+		}
+	}
 ]
