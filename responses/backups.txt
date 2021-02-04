@@ -1,0 +1,49 @@
+{
+  "backups": [
+    {
+      "deleted": false,
+      "disabled": false,
+      "data_removed": false,
+      "_id": "6009decbdbdc82009fff6b5c",
+      "server_id": "5fde35543e617f009c88b416",
+      "description": "",
+      "server_model_snapshot": {
+        "server_properties": {
+          ...
+        },
+        "purchased_plugins": [
+          
+        ],
+        "active_plugins": [
+          ...
+        ],
+        "purchased_icons": [
+          "5eb9c175b04a8c1b6b4a1fa4"
+        ],
+        "backup_slots": 0,
+        "suspended": false,
+        "installed_content_packs": [
+          
+        ],
+        ... (generic data of /server/{server-id})
+      },
+      "last_backup_time": 1611259595154,
+      "__v": 0,
+      "content": {
+        
+      },
+      "pending": false
+    }
+  ],
+  "rolling_backup": {
+    "size": 17006740,
+    "metaData": {
+      "content-type": "application/octet-stream",
+      "mtime": "1612032498.213216858"
+    },
+    "lastModified": "2021-01-30T18:48:18.000Z",
+    "etag": "5b9ef31f581da8008ec46fef8f0be925",
+    "last_backup_time": "2021-01-30T18:48:18.000Z",
+    "_id": "5fde35543e617f009c88b416"
+  }
+}
