@@ -3,7 +3,7 @@ let endpoints = [];
 
 window.onload = async (e) => {
 
-    const data = await fetch(`${BASE_RAW}/shit.json`).then(res => res.json());
+    const data = await fetch(`${BASE_RAW}/items.json`).then(res => res.json());
 
     data.forEach(async (c) => {
         const auth = c.auth ? "Requires authorization." : "Doesn't require authorization.";
