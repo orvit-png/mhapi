@@ -45,6 +45,42 @@
         }
     },
     {
+        "method": "get",
+        "name": "/network/homepage_stats",
+        "auth": false,
+        "endpoint": "https://api.minehut.com/network/homepage_stats",
+        "description": [
+            "Returns the server and player count."
+        ],
+        "response": {
+            "file": "homepage_stats.txt"
+        }
+    },
+    {
+        "method": "get",
+        "name": "/network/top_servers",
+        "auth": false,
+        "endpoint": "https://api.minehut.com/network/top_servers",
+        "description": [
+            "Returns information about the top 5 player servers."
+        ],
+        "response": {
+            "file": "top_servers.txt"
+        }
+    },
+    {
+        "method": "get",
+        "name": "/network/simple_stats",
+        "auth": false,
+        "endpoint": "https://api.minehut.com/network/simple_stats",
+        "description": [
+            "Returns information about Minehut as a whole."
+        ],
+        "response": {
+            "file": "simple_stats.txt"
+        }
+    },
+    {
         "method": "post",
         "name": "/users/login",
         "auth": false,
@@ -63,7 +99,7 @@
         "auth": true,
         "endpoint": "https://api.minehut.com/users/ghost_login",
         "description": [
-            "(Deprecated) Returns the same data as <span class=\"code\">/users/login</span>, but instead of using login credentials, it uses a token and session id."
+            "(Removed) Returns the same data as <span class=\"code\">/users/login</span>, but instead of using login credentials, it uses a token and session id."
         ]
     },
     {
@@ -73,7 +109,7 @@
         "endpoint": "https://api.minehut.com/users/signup",
         "body": "{\"email\":\"spongebob@squarep.ants\",\"birthday\":\"1986-01-02T00:05:40.082Z\"}",
         "description": [
-            "(Deprecated) Create a new Minehut account with the email and birth date, also sends a verification code to the provided email."
+            "(Removed) Create a new Minehut account with the email and birth date, also sends a verification code to the provided email."
         ]
     },
     {
@@ -83,7 +119,7 @@
         "endpoint": "https://api.minehut.com/users/confirm_email",
         "body": "{\"email_code\":\"P1N34PPL3\",\"password\":\"P@ssw0rd1234\"}",
         "description": [
-            "(Deprecated) Verifies an account using the provided email code and sets a password for the account."
+            "(Removed) Verifies an account using the provided email code and sets a password for the account."
         ]
     },
     {
