@@ -1,0 +1,7 @@
+{
+  "player_count": 11658,
+  "server_count": 6805,
+  "server_max": 20000,
+  "ram_count": 7757312,
+  "ram_max": 19000
+}
