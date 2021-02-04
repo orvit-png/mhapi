@@ -2,7 +2,7 @@
 
 Documentation of API endpoints available on the Minehut API located [here](https://api.minehut.com).
 
-- View the docs by clicking [here](https://api.bennydoesstuff.me) or visiting https://api.bennydoesstuff.me
+- View the docs by clicking [here]() or visiting https://orvit-png.github.io/mhapi/
 
 ## Contributing
 
