@@ -1,7 +1,7 @@
 {
-  "player_count": 11658,
-  "server_count": 6805,
-  "server_max": 20000,
-  "ram_count": 7757312,
-  "ram_max": 19000
+  "player_count": 1,      // Amount of players online.
+  "server_count": 1,      // Amount of servers online.
+  "server_max": 20000,    // Most amount of servers possible to be online.
+  "ram_count": 7000000,   // Amount of RAM (in mb) currently being used.
+  "ram_max": 19000        // Maximum amount of ram (in gb) possible to be used.
 }
