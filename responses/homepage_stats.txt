@@ -1,4 +1,4 @@
 {
-  "server_count": 4056375,
-  "user_count": 3070553
+  "server_count": 1, // The amount of servers made on Minehut.
+  "user_count": 1 // The amount of Minehut Panel users.
 }
