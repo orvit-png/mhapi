@@ -56,7 +56,7 @@ html {
 }
 
 #Layer_1 {
-  fill: #1E1E1E;
+  fill: white;
   width: 30px;
   height: 30px;
 }
@@ -96,7 +96,7 @@ pre {
   margin-right: 10%;
   margin-top: 7.5px;
   margin-bottom: 7.5px;
-  background: #1E1E1E;
+  background: white;
   border-radius: 5px;
   border: 1px solid #ddd;
 }
