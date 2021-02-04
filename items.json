@@ -87,7 +87,7 @@
         "endpoint": "https://api.minehut.com/users/login",
         "body": "{\"email\":\"spongebob@squarep.ants\",\"password\":\"ILiveInAPineappleUnderTheSea404\"}",
         "description": [
-            "(Deprecated) Logins with the provided credentials and returns the token, session id, and servers of the user."
+            "(Removed) Logins with the provided credentials and returns the token, session id, and servers of the user."
         ],
         "response": {
             "file": "login.txt"
